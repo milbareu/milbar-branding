@@ -1,6 +1,6 @@
 <?php
 
-namespace Roots\Branding;
+namespace Milbar\Branding;
 
 // Set up plugin class
 class Init
@@ -13,13 +13,13 @@ class Init
         add_action('admin_bar_menu', [$this, 'create_menu'], 1);
         add_action('wp_before_admin_bar_render', [$this, 'menu_custom_logo']);
         add_filter('login_headerurl', [$this, 'login_logo_url']);
-        add_filter('login_headertitle', [$this, 'login_logo_title']);
+        add_filter('login_headertext', [$this, 'login_logo_title']);
     }
 
 
     /**
-    * Remove WordPress admin bar menu
-    */
+     * Remove WordPress admin bar menu
+     */
     public function remove_wp_logo($wp_admin_bar)
     {
         $wp_admin_bar->remove_node('wp-logo');
@@ -27,20 +27,21 @@ class Init
 
 
     /**
-    * Replace login screen logo
-    */
+     * Replace login screen logo
+     */
     public function login_logo()
     {
         ?>
-    <style type="text/css">
-      body.login div#login h1 a {
-      background-image: url( <?=(ROOTS_BRANDING_PLUGIN_URL . 'assets/images/logo-icon.svg')?> );
-      background-repeat: no-repeat;
-      background-size: auto;
-      width: 300px;
-    }
-    </style>
-  <?php
+        <style type="text/css">
+            body.login div#login h1 a {
+                background-image: url( <?=(MILBAR_BRANDING_PLUGIN_URL . 'assets/images/logo-small.png')?> );
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;
+                width: 300px;
+            }
+        </style>
+        <?php
     }
 
 
@@ -50,7 +51,7 @@ class Init
      */
     public function login_logo_url($url)
     {
-        return 'https://roots.io';
+        return 'https://milbar.eu';
     }
 
 
@@ -58,7 +59,7 @@ class Init
     // Replace login logo title
     public function login_logo_title()
     {
-        return 'Powered by Roots';
+        return 'Powered by MilBar';
     }
 
 
@@ -68,46 +69,46 @@ class Init
         global $wp_admin_bar;
         $menu_id = 'my-logo';
         $wp_admin_bar->add_node([
-          'id' => $menu_id,
-          'title' =>
-          '<span class="ab-icon">' . file_get_contents(ROOTS_BRANDING_PLUGIN_DIR . "assets/images/logo-icon.svg") . '</span>',
-          'href' => '/'
-          ]);
+            'id' => $menu_id,
+            'title' =>
+                '<span class="ab-icon"><img src="' . MILBAR_BRANDING_PLUGIN_URL . "assets/images/icon-white-small.png" . '" alt="milbar-icon"></span>',
+            'href' => '/'
+        ]);
         $wp_admin_bar->add_node([
-          'parent' => $menu_id,
-          'title' => __('Homepage'),
-          'id' => 'my-logo-home',
-          'href' => 'https://roots.io',
-          'meta' => ['target' => '_blank']
-          ]);
+            'parent' => $menu_id,
+            'title' => __('Homepage'),
+            'id' => 'my-logo-home',
+            'href' => 'https://milbar.eu',
+            'meta' => ['target' => '_blank']
+        ]);
     }
 
 
     /**
-    * Replace login screen logo
-    */
+     * Replace login screen logo
+     */
     public function menu_custom_logo()
     {
         ?>
-    <style type="text/css">
-      #wpadminbar #wp-admin-bar-my-logo > .ab-item .ab-icon {
-        height: 20px;
-        width: 20px;
-        margin-right: 0 !important;
-        padding-top: 7px !important;
-      }
-      #wpadminbar #wp-admin-bar-my-logo > .ab-item .ab-icon svg * {
-        fill: currentColor;
-      }
-    </style>
-  <?php
+        <style type="text/css">
+            #wpadminbar #wp-admin-bar-my-logo > .ab-item .ab-icon{
+                height: 20px;
+                width: 20px;
+                margin-right: 0 !important;
+                padding-top: 7px !important;
+            }
+            #wpadminbar #wp-admin-bar-my-logo > .ab-item .ab-icon img{
+                width: 100%;
+            }
+        </style>
+        <?php
     }
 
     /**
-    * Add "designed and developed..." to admin footer.
-    */
+     * Add "designed and developed..." to admin footer.
+     */
     public function admin_footer($content)
     {
-        return 'Site powered by <a href="https://roots.io">Roots</a>';
+        return 'Made with &#10084; by <a href="https://milbar.eu">Milan Bartalovics</a>';
     }
 }

@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: Roots Branding
-Plugin URI: https://roots.io
-Description: Branding for Roots WordPress sites.
+Plugin Name: MilBar Branding
+Plugin URI: https://milbar.eu
+Description: Branding for MilBar WordPress sites.
 Version: 1.0
-Author: Michael W. Delaney
+Author: Milan Bartalovics
 Author URI:
 License: MIT
 */
 
-namespace Roots\Branding;
+namespace MilBar\Branding;
 
 /**
  * Set up autoloader
@@ -17,8 +17,8 @@ namespace Roots\Branding;
 require __DIR__ . '/vendor/autoload.php';
 
 // Define constants
-define('ROOTS_BRANDING_PLUGIN_DIR', plugin_dir_path(__FILE__));
-define('ROOTS_BRANDING_PLUGIN_URL', plugin_dir_url(__FILE__));
+define('MILBAR_BRANDING_PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('MILBAR_BRANDING_PLUGIN_URL', plugin_dir_url(__FILE__));
 
 // Branding
-$roots_branding = new Init();
+$milbar_branding = new Init();
