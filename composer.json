@@ -1,12 +1,12 @@
 {
-  "name": "roots/roots-branding",
-  "description": "Branding for Roots WordPress sites.",
+  "name": "mb_wp-plugin/milbar-branding",
+  "description": "Branding for MilBar WordPress sites.",
   "keywords": ["wordpress", "plugin", "branding"],
-  "homepage": "https://github.com/roots/roots-branding",
+  "homepage": "https://milbar.eu",
   "license": "MIT",
   "authors": [
     {
-      "name": "Michael W. Delaney"
+      "name": "Milan Bartalovics"
     }
   ],
   "type": "wordpress-muplugin",
