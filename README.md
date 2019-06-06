@@ -1,3 +1,3 @@
-# WordPress branding for Roots
+# WordPress branding for Milbar
 Basic theme branding.
 
