@@ -1,9 +1,856 @@
-$base-color: #005C8C;
-$icon-color: #fff;
-$highlight-color: #21678C;
+$base-color:  #31659C;
+$icon-color: #e5f8ff;
+$highlight-color: #639ACE;
 $notification-color: #e1a948;
-$button-color: #e1a948;
+$button-color: $notification-color;
 
-$menu-submenu-text: #e2ecf1;
+$menu-submenu-text: #94BAE7;
 $menu-submenu-focus-text: #fff;
-$menu-submenu-background: #0085CA;
+$menu-submenu-background:  #4A79A5;
+
+//colors
+$white: #fff;
+$seashell: #f1f1f1;
+$color_mystic_approx: #e2ecf1;
+$color_swirl_approx: #d1cdc7;
+$color_blue_stone_approx: #07526c;
+$color_allports_approx: #0073aa;
+$color_cerulean_approx: #0096dd;
+$color_scooter_approx: #33b3db;
+$color_glacier_approx: #74b6ce;
+$color_viking_approx: #6eb9d4;
+$color_geebung_approx: #d39323;
+$color_marigold_approx: #bd831f;
+$color_golden_grass_approx: #db9925;
+$color_tussock_approx: #cb9841;
+
+$color_boston_blue_approx: $menu-submenu-background;
+$color_lily_white_approx: $icon-color;
+$color_shakespeare_approx: $base-color;
+$color_anzac_approx: $notification-color;
+$color_orient_approx: $highlight-color;
+
+//@extend-elements
+//original selectors
+//.wp-core-ui .button-primary:hover, .wp-core-ui .button-primary:focus
+%extend_1 {
+  background: $color_anzac_approx;
+  border-color: $color_marigold_approx;
+  color: $white;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 0 1px 0 $color_marigold_approx;
+}
+
+//original selectors
+//.wp-core-ui .button-primary:active, .wp-core-ui .button-primary.active, .wp-core-ui .button-primary.active:focus, .wp-core-ui .button-primary.active:hover
+%extend_2 {
+  background: $color_geebung_approx;
+  border-color: $color_marigold_approx;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: inset 0 2px 0 $color_marigold_approx;
+}
+
+//original selectors
+//.wp-core-ui .button-primary[disabled], .wp-core-ui .button-primary:disabled, .wp-core-ui .button-primary.button-primary-disabled, .wp-core-ui .button-primary.disabled
+%extend_3 {
+  color: $color_swirl_approx !important;
+  background: $color_golden_grass_approx !important;
+  border-color: $color_marigold_approx !important;
+  //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  text-shadow: none !important;
+}
+
+
+body {
+  background: $seashell;
+  &.more-filters-opened .more-filters {
+    color: $white;
+    background-color: $color_shakespeare_approx;
+    &:before {
+      color: $white;
+    }
+    &:hover {
+      background-color: $color_orient_approx;
+      color: $white;
+      &:before {
+        color: $white;
+      }
+    }
+    &:focus {
+      background-color: $color_orient_approx;
+      color: $white;
+      &:before {
+        color: $white;
+      }
+    }
+  }
+}
+a {
+  color: $color_allports_approx;
+  &:hover {
+    color: $color_cerulean_approx;
+  }
+  &:active {
+    color: $color_cerulean_approx;
+  }
+  &:focus {
+    color: $color_cerulean_approx;
+  }
+}
+div {
+  &.dashboard-widget-submit input:hover {
+    color: $color_cerulean_approx;
+  }
+  &#wp-responsive-toggle a:before {
+    color: $color_lily_white_approx;
+  }
+}
+.wp-core-ui {
+  input[type="reset"] {
+    &:hover {
+      color: $color_cerulean_approx;
+    }
+    &:active {
+      color: $color_cerulean_approx;
+    }
+  }
+  .button-primary {
+    background: $color_anzac_approx;
+    border-color: $color_geebung_approx $color_marigold_approx $color_marigold_approx;
+    color: $white;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 1px 0 $color_marigold_approx;
+    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    text-shadow: 0 -1px 1px $color_marigold_approx, 1px 0 1px $color_marigold_approx, 0 1px 1px $color_marigold_approx, -1px 0 1px $color_marigold_approx;
+    &:hover {
+      @extend %extend_1;
+    }
+    &:focus {
+      @extend %extend_1;
+      //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+      box-shadow: inset 0 1px 0 $color_geebung_approx, 0 0 2px 1px $color_scooter_approx;
+    }
+    &:active {
+      @extend %extend_2;
+    }
+    &.active {
+      @extend %extend_2;
+      &:focus {
+        @extend %extend_2;
+      }
+      &:hover {
+        @extend %extend_2;
+      }
+    }
+    &:disabled {
+      @extend %extend_3;
+    }
+    &.button-primary-disabled {
+      @extend %extend_3;
+    }
+    &.disabled {
+      @extend %extend_3;
+    }
+    &.button-hero {
+      //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+      box-shadow: 0 2px 0 $color_marigold_approx !important;
+      &:active {
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: inset 0 3px 0 $color_marigold_approx !important;
+      }
+    }
+  }
+  .button-primary[disabled] {
+    @extend %extend_3;
+  }
+  .wp-ui-primary {
+    color: $white;
+    background-color: $color_shakespeare_approx;
+  }
+  .wp-ui-text-primary {
+    color: $color_shakespeare_approx;
+  }
+  .wp-ui-highlight {
+    color: $white;
+    background-color: $color_orient_approx;
+  }
+  .wp-ui-text-highlight {
+    color: $color_orient_approx;
+  }
+  .wp-ui-notification {
+    color: $white;
+    background-color: $color_anzac_approx;
+  }
+  .wp-ui-text-notification {
+    color: $color_anzac_approx;
+  }
+  .wp-ui-text-icon {
+    color: $color_lily_white_approx;
+  }
+}
+.wrap {
+  .add-new-h2:hover {
+    color: $white;
+    background-color: $color_shakespeare_approx;
+  }
+  .page-title-action:hover {
+    color: $white;
+    background-color: $color_shakespeare_approx;
+  }
+}
+#adminmenuback {
+  background: $color_shakespeare_approx;
+}
+#adminmenuwrap {
+  background: $color_shakespeare_approx;
+}
+#adminmenu {
+  background: $color_shakespeare_approx;
+  a {
+    color: $white;
+    &:hover {
+      color: $white;
+      background-color: $color_orient_approx;
+    }
+    &.wp-has-current-submenu:focus + .wp-submenu {
+      background: $color_boston_blue_approx;
+      a {
+        color: $color_mystic_approx;
+        &:focus {
+          color: $white;
+        }
+        &:hover {
+          color: $white;
+        }
+      }
+      li.current a {
+        color: $white;
+        &:hover {
+          color: $white;
+        }
+        &:focus {
+          color: $white;
+        }
+      }
+    }
+    &.current:hover div.wp-menu-image:before {
+      color: $white;
+    }
+  }
+  li {
+    &.opensub {
+      > a.menu-top {
+        color: $white;
+        background-color: $color_orient_approx;
+        div.wp-menu-image:before {
+          color: $white;
+        }
+      }
+      div.wp-menu-image:before {
+        color: $white;
+      }
+    }
+    &.wp-has-current-submenu {
+      a {
+        &.wp-has-current-submenu {
+          color: $white;
+          background: $color_orient_approx;
+        }
+        &:focus div.wp-menu-image:before {
+          color: $white;
+        }
+      }
+      .wp-submenu .wp-submenu-head {
+        color: $white;
+        background: $color_orient_approx;
+      }
+      div.wp-menu-image:before {
+        color: $white;
+      }
+      &.opensub div.wp-menu-image:before {
+        color: $white;
+      }
+    }
+    &:hover {
+      div.wp-menu-image:before {
+        color: $white;
+      }
+      a .awaiting-mod {
+        color: $white;
+        background: $color_boston_blue_approx;
+      }
+    }
+    a {
+      &:focus div.wp-menu-image:before {
+        color: $white;
+      }
+      &.wp-has-current-submenu .update-plugins {
+        color: $white;
+        background: $color_boston_blue_approx;
+      }
+    }
+    &.menu-top:hover {
+      color: $white;
+      background-color: $color_orient_approx;
+      div.wp-menu-image:before {
+        color: $white;
+      }
+      > a .update-plugins {
+        color: $white;
+        background: $color_boston_blue_approx;
+      }
+    }
+    > a.menu-top:focus {
+      color: $white;
+      background-color: $color_orient_approx;
+    }
+    &.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
+      border-right-color: $color_boston_blue_approx;
+    }
+    &.current a {
+      &.menu-top {
+        color: $white;
+        background: $color_orient_approx;
+      }
+      .awaiting-mod {
+        color: $white;
+        background: $color_boston_blue_approx;
+      }
+    }
+  }
+  .wp-submenu {
+    background: $color_boston_blue_approx;
+    .wp-submenu-head {
+      color: $color_mystic_approx;
+    }
+    a {
+      color: $color_mystic_approx;
+      &:focus {
+        color: $white;
+      }
+      &:hover {
+        color: $white;
+      }
+    }
+    li.current a {
+      color: $white;
+      &:hover {
+        color: $white;
+      }
+      &:focus {
+        color: $white;
+      }
+    }
+  }
+  .wp-has-current-submenu {
+    .wp-submenu {
+      background: $color_boston_blue_approx;
+      a {
+        color: $color_mystic_approx;
+        &:focus {
+          color: $white;
+        }
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+    &.opensub .wp-submenu {
+      background: $color_boston_blue_approx;
+      a {
+        color: $color_mystic_approx;
+        &:focus {
+          color: $white;
+        }
+        &:hover {
+          color: $white;
+        }
+      }
+      li.current a {
+        color: $white;
+        &:hover {
+          color: $white;
+        }
+        &:focus {
+          color: $white;
+        }
+      }
+    }
+  }
+  .awaiting-mod {
+    color: $white;
+    background: $color_anzac_approx;
+  }
+  .update-plugins {
+    color: $white;
+    background: $color_anzac_approx;
+  }
+  div.wp-menu-image:before {
+    color: $color_lily_white_approx;
+  }
+}
+.nav-tab-active {
+  background-color: $seashell;
+  border-bottom-color: $seashell;
+  &:hover {
+    background-color: $seashell;
+    border-bottom-color: $seashell;
+  }
+}
+#collapse-button {
+  color: $color_lily_white_approx;
+  &:hover {
+    color: $white;
+  }
+  &:focus {
+    color: $white;
+  }
+}
+#wpadminbar {
+  color: $white;
+  background: $color_shakespeare_approx;
+  .ab-item {
+    color: $white;
+    &:before {
+      color: $color_lily_white_approx;
+    }
+    &:after {
+      color: $color_lily_white_approx;
+    }
+  }
+  .ab-icon {
+    color: $color_lily_white_approx;
+    &:before {
+      color: $color_lily_white_approx;
+    }
+  }
+  &.nojs {
+    .ab-top-menu > li.menupop:hover > .ab-item {
+      color: $white;
+      background: $color_boston_blue_approx;
+    }
+    .quicklinks .menupop:hover ul li a {
+      color: $color_mystic_approx;
+      &:hover {
+        color: $white;
+      }
+      &:focus {
+        color: $white;
+      }
+    }
+  }
+  .ab-top-menu {
+    > li.menupop.hover > .ab-item {
+      color: $white;
+      background: $color_boston_blue_approx;
+    }
+    > #wp-admin-bar-recovery-mode.hover > .ab-item {
+      color: $white;
+      background-color: $color_tussock_approx;
+    }
+  }
+  .menupop {
+    .ab-sub-wrapper {
+      background: $color_boston_blue_approx;
+    }
+    .menupop > .ab-item {
+      &:before {
+        color: $color_lily_white_approx;
+      }
+      &:hover:before {
+        color: $white;
+      }
+    }
+  }
+  .quicklinks {
+    .menupop {
+      ul {
+        &.ab-sub-secondary {
+          background: $color_glacier_approx;
+          .ab-submenu {
+            background: $color_glacier_approx;
+          }
+        }
+        li a {
+          color: $color_mystic_approx;
+          &:hover {
+            color: $white;
+            strong {
+              color: $white;
+            }
+          }
+          &:focus {
+            color: $white;
+            strong {
+              color: $white;
+            }
+          }
+        }
+      }
+      &.hover ul li a {
+        color: $color_mystic_approx;
+        &:hover {
+          color: $white;
+        }
+        &:focus {
+          color: $white;
+        }
+      }
+    }
+    li {
+      .blavatar {
+        color: $color_lily_white_approx;
+      }
+      a {
+        &:hover .blavatar {
+          color: $white;
+        }
+        &:focus .blavatar {
+          color: $white;
+        }
+      }
+      &#wp-admin-bar-my-account.with-avatar > a img {
+        border-color: $color_viking_approx;
+        background-color: $color_viking_approx;
+      }
+    }
+    .ab-sub-wrapper .menupop.hover > a {
+      color: $white;
+      .blavatar {
+        color: $white;
+      }
+    }
+  }
+  li {
+    &:hover {
+      .ab-icon:before {
+        color: $white;
+      }
+      .ab-item:before {
+        color: $white;
+      }
+      #adminbarsearch:before {
+        color: $white;
+      }
+    }
+    &.hover {
+      .ab-icon:before {
+        color: $white;
+      }
+      .ab-item:before {
+        color: $white;
+      }
+    }
+    a:focus .ab-icon:before {
+      color: $white;
+    }
+    .ab-item:focus {
+      &:before {
+        color: $white;
+      }
+      .ab-icon:before {
+        color: $white;
+      }
+    }
+    #adminbarsearch.adminbar-focused:before {
+      color: $white;
+    }
+  }
+  #wp-admin-bar-recovery-mode {
+    color: $white;
+    background-color: $color_anzac_approx;
+    .ab-item {
+      color: $white;
+    }
+    a.ab-item {
+      color: $white;
+    }
+  }
+  #wp-admin-bar-user-info {
+    .display-name {
+      color: $white;
+    }
+    .username {
+      color: $color_mystic_approx;
+    }
+    a:hover .display-name {
+      color: $white;
+    }
+  }
+  a.ab-item {
+    color: $white;
+  }
+  > #wp-toolbar {
+    span {
+      &.ab-label {
+        color: $white;
+      }
+      &.noticon {
+        color: $white;
+      }
+    }
+    > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
+      color: $white;
+      background: $color_viking_approx;
+    }
+  }
+  &:not(.mobile) {
+    .ab-top-menu {
+      > li {
+        &:hover > .ab-item {
+          color: $white;
+          background: $color_boston_blue_approx;
+        }
+        > .ab-item:focus {
+          color: $white;
+          background: $color_boston_blue_approx;
+        }
+      }
+      > #wp-admin-bar-recovery-mode {
+        &:hover > .ab-item {
+          color: $white;
+          background-color: $color_tussock_approx;
+        }
+        > .ab-item:focus {
+          color: $white;
+          background-color: $color_tussock_approx;
+        }
+      }
+    }
+    > #wp-toolbar {
+      li {
+        &:hover span.ab-label {
+          color: $white;
+        }
+        &.hover span.ab-label {
+          color: $white;
+        }
+      }
+      a:focus span.ab-label {
+        color: $white;
+      }
+    }
+    li:hover {
+      .ab-item {
+        &:before {
+          color: $white;
+        }
+        &:after {
+          color: $white;
+        }
+      }
+      .ab-icon:before {
+        color: $white;
+      }
+      #adminbarsearch:before {
+        color: $white;
+      }
+    }
+  }
+  &.nojq .quicklinks .ab-top-menu {
+    > li > .ab-item:focus {
+      color: $white;
+      background: $color_boston_blue_approx;
+    }
+    > #wp-admin-bar-recovery-mode > .ab-item:focus {
+      color: $white;
+      background-color: $color_tussock_approx;
+    }
+  }
+  .ab-submenu .ab-item {
+    color: $color_mystic_approx;
+  }
+  &.mobile .quicklinks {
+    .hover {
+      .ab-icon:before {
+        color: $color_lily_white_approx;
+      }
+      .ab-item:before {
+        color: $color_lily_white_approx;
+      }
+    }
+    .ab-icon:before {
+      color: $white;
+    }
+    .ab-item:before {
+      color: $white;
+    }
+  }
+  #adminbarsearch:before {
+    color: $color_lily_white_approx;
+  }
+}
+.wp-pointer {
+  &.wp-pointer-top {
+    .wp-pointer-arrow {
+      border-bottom-color: $color_orient_approx;
+    }
+    .wp-pointer-arrow-inner {
+      border-bottom-color: $color_orient_approx;
+    }
+  }
+  &.wp-pointer-undefined {
+    .wp-pointer-arrow {
+      border-bottom-color: $color_orient_approx;
+    }
+    .wp-pointer-arrow-inner {
+      border-bottom-color: $color_orient_approx;
+    }
+  }
+  .wp-pointer-content h3 {
+    background-color: $color_orient_approx;
+    border-color: $color_blue_stone_approx;
+    &:before {
+      color: $color_orient_approx;
+    }
+  }
+}
+.wp-responsive-open {
+  div#wp-responsive-toggle a {
+    border-color: transparent;
+    background: $color_orient_approx;
+  }
+  #wpadminbar #wp-admin-bar-menu-toggle {
+    a {
+      background: $color_boston_blue_approx;
+    }
+    .ab-icon:before {
+      color: $color_lily_white_approx;
+    }
+  }
+}
+#media-upload a.del-link:hover {
+  color: $color_cerulean_approx;
+}
+.subsubsub a {
+  &:hover {
+    color: $color_cerulean_approx;
+  }
+  &.current:hover {
+    color: $color_cerulean_approx;
+  }
+}
+input[type=checkbox]:checked:before {
+  color: $color_orient_approx;
+}
+input[type=radio]:checked:before {
+  background: $color_orient_approx;
+}
+.view-switch a {
+  &.current:before {
+    color: $color_shakespeare_approx;
+  }
+  &:hover:before {
+    color: $color_anzac_approx;
+  }
+}
+.about-wrap .nav-tab-active {
+  background-color: $seashell;
+  border-bottom-color: $seashell;
+}
+.folded #adminmenu {
+  .wp-has-current-submenu .wp-submenu {
+    background: $color_boston_blue_approx;
+    a {
+      color: $color_mystic_approx;
+      &:focus {
+        color: $white;
+      }
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+  li.current.menu-top {
+    color: $white;
+    background: $color_orient_approx;
+  }
+}
+ul#adminmenu {
+  a.wp-has-current-submenu:after {
+    border-right-color: $seashell;
+  }
+  > li.current > a.current:after {
+    border-right-color: $seashell;
+  }
+}
+.ie8 #adminmenu li.opensub div.wp-menu-image:before {
+  color: $white;
+}
+.media-item .bar {
+  background-color: $color_orient_approx;
+}
+.media-progress-bar div {
+  background-color: $color_orient_approx;
+}
+.details.attachment {
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: inset 0 0 0 3px $white, inset 0 0 0 7px $color_orient_approx;
+}
+.attachment.details .check {
+  background-color: $color_orient_approx;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 0 0 0 1px $white, 0 0 0 2px $color_orient_approx;
+}
+.media-selection .attachment.selection.details .thumbnail {
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 0 0 0 1px $white, 0 0 0 3px $color_orient_approx;
+}
+.theme-browser .theme {
+  &.active .theme-name {
+    background: $color_orient_approx;
+  }
+  &.add-new-theme a {
+    &:hover {
+      &:after {
+        background: $color_orient_approx;
+      }
+      span:after {
+        color: $color_orient_approx;
+      }
+    }
+    &:focus {
+      &:after {
+        background: $color_orient_approx;
+      }
+      span:after {
+        color: $color_orient_approx;
+      }
+    }
+  }
+}
+.theme-section.current {
+  border-bottom-color: $color_shakespeare_approx;
+}
+.theme-filter.current {
+  border-bottom-color: $color_shakespeare_approx;
+}
+.widgets-chooser li.widgets-chooser-selected {
+  background-color: $color_orient_approx;
+  color: $white;
+  &:before {
+    color: $white;
+  }
+  &:focus:before {
+    color: $white;
+  }
+}
+.mce-container.mce-menu {
+  .mce-menu-item {
+    &:hover {
+      background: $color_orient_approx;
+    }
+    &.mce-selected {
+      background: $color_orient_approx;
+    }
+    &:focus {
+      background: $color_orient_approx;
+    }
+  }
+  .mce-menu-item-normal.mce-active {
+    background: $color_orient_approx;
+  }
+  .mce-menu-item-preview.mce-active {
+    background: $color_orient_approx;
+  }
+}
