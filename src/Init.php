@@ -5,40 +5,10 @@ namespace Milbar\Branding;
 // Set up plugin class
 class Init
 {
-    /**
-     * Remove Option to change color Scheme from admin
-     */
-    public function admin_color_scheme()
-    {
-        global $_wp_admin_css_colors;
-        $_wp_admin_css_colors = 0;
-    }
-
-    /**
-     * Add milbar color scheme
-     */
-    public function milbar_admin_color_scheme() {
-        wp_admin_css_color( 'milbar', __( 'MilBar' ),
-            MILBAR_BRANDING_PLUGIN_URL . 'assets/css/admin-color.min.css',
-            array( '#005C8C', '#21678C', '#0085CA', '#ffffff' )
-        );
-    }
-
-    /**
-     * @param $user_id
-     * Set default admin color scheme to milbar when user register.
-     */
-
-    public function set_default_admin_color($user_id) {
-        $args = array(
-            'ID' => $user_id,
-            'admin_color' => 'milbar'
-        );
-        wp_update_user( $args );
-    }
 
     public function __construct()
     {
+        add_action('login_head', [$this, 'wpb_remove_loginshake']);
         add_action('login_enqueue_scripts', [$this, 'login_logo']);
         add_filter('admin_footer_text', [$this, 'admin_footer'], 11);
         add_action('admin_bar_menu', [$this, 'remove_wp_logo'], 999);
@@ -51,6 +21,12 @@ class Init
         add_action('user_register', [$this, 'set_default_admin_color']);
     }
 
+    /**
+     *  Remove wp-login form shake effect
+     */
+    public function wpb_remove_loginshake() {
+        remove_action('login_head', 'wp_shake_js', 12);
+    }
 
     /**
      * Remove WordPress admin bar menu
@@ -60,7 +36,6 @@ class Init
         $wp_admin_bar->remove_node('wp-logo');
     }
 
-
     /**
      * Replace login screen logo
      */
@@ -68,13 +43,7 @@ class Init
     {
         ?>
         <style type="text/css">
-            body.login div#login h1 a {
-                background-image: url( <?=(MILBAR_BRANDING_PLUGIN_URL . 'assets/images/logo-small.png')?> );
-                background-repeat: no-repeat;
-                background-size: contain;
-                background-position: center center;
-                width: 300px;
-            }
+            body.login div#login h1 a{background-image:url("<?=(MILBAR_BRANDING_PLUGIN_URL . 'assets/images/logo-small.png')?>");background-repeat:no-repeat;background-size:contain;background-position:center center;width:300px}:focus{outline:#0085ca auto 5px}@media screen and (min-width:1024px){html{overflow:hidden}body{display:flex;align-items:center;justify-content:center;max-width:50%;padding-left:50%!important;position:relative}body:before{content:'';background:url("<?=(MILBAR_BRANDING_PLUGIN_URL . 'assets/images/login-bg.jpg')?>");display:block;width:50%;position:absolute;height:100vh;left:0;top:0;background-repeat:no-repeat;background-position:center center;background-size:cover}}.login form{background:0 0!important;box-shadow:none!important;padding:0!important;margin-bottom:15px!important}.login form input[type=password],.login form input[type=text]{background:0 0!important;border:0!important;box-shadow:none!important;border-bottom:1px solid!important}.login form input[type=password]:focus,.login form input[type=text]:focus{outline:0!important;box-shadow:none!important;border-bottom:2px solid #0085ca!important}.login form input[type=submit]{border-radius:0!important;background-color:#0085ca!important;border-color:#0085ca!important}.login #backtoblog,.login #nav{margin:0!important;padding:0!important;display:inline-block!important}.login #nav{float:right!important}.login #backtoblog{float:left!important}
         </style>
         <?php
     }
@@ -144,5 +113,38 @@ class Init
     public function admin_footer($content)
     {
         return 'Made with &#10084; by <a href="https://milbar.eu">Milan Bartalovics</a>';
+    }
+
+
+    /**
+     * Remove Option to change color Scheme from admin
+     */
+    public function admin_color_scheme()
+    {
+        global $_wp_admin_css_colors;
+        $_wp_admin_css_colors = 0;
+    }
+
+    /**
+     * Add milbar color scheme
+     */
+    public function milbar_admin_color_scheme() {
+        wp_admin_css_color( 'milbar', __( 'MilBar' ),
+            MILBAR_BRANDING_PLUGIN_URL . 'assets/css/admin-color.min.css',
+            array( '#005C8C', '#21678C', '#0085CA', '#ffffff' )
+        );
+    }
+
+    /**
+     * @param $user_id
+     * Set default admin color scheme to milbar when user register.
+     */
+
+    public function set_default_admin_color($user_id) {
+        $args = array(
+            'ID' => $user_id,
+            'admin_color' => 'milbar'
+        );
+        wp_update_user( $args );
     }
 }
