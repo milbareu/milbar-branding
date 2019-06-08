@@ -19,7 +19,7 @@ class Init
      */
     public function milbar_admin_color_scheme() {
         wp_admin_css_color( 'milbar', __( 'MilBar' ),
-            MILBAR_BRANDING_PLUGIN_URL . 'assets/css/admin-color.css',
+            MILBAR_BRANDING_PLUGIN_URL . 'assets/css/admin-color.min.css',
             array( '#005C8C', '#21678C', '#0085CA', '#ffffff' )
         );
     }
