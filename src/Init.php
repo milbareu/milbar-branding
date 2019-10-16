@@ -115,36 +115,4 @@ class Init
         return 'Made with &#10084; by <a href="https://milbar.eu">Milan Bartalovics</a>';
     }
 
-
-    /**
-     * Remove Option to change color Scheme from admin
-     */
-    public function admin_color_scheme()
-    {
-        global $_wp_admin_css_colors;
-        $_wp_admin_css_colors = 0;
-    }
-
-    /**
-     * Add milbar color scheme
-     */
-    public function milbar_admin_color_scheme() {
-        wp_admin_css_color( 'milbar', __( 'MilBar' ),
-            MILBAR_BRANDING_PLUGIN_URL . 'assets/css/admin-color.min.css',
-            array( '#005C8C', '#21678C', '#0085CA', '#ffffff' )
-        );
-    }
-
-    /**
-     * @param $user_id
-     * Set default admin color scheme to milbar when user register.
-     */
-
-    public function set_default_admin_color($user_id) {
-        $args = array(
-            'ID' => $user_id,
-            'admin_color' => 'milbar'
-        );
-        wp_update_user( $args );
-    }
 }
