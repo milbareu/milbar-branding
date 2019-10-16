@@ -16,9 +16,6 @@ class Init
         add_action('wp_before_admin_bar_render', [$this, 'menu_custom_logo']);
         add_filter('login_headerurl', [$this, 'login_logo_url']);
         add_filter('login_headertext', [$this, 'login_logo_title']);
-        add_action('admin_head', [$this, 'admin_color_scheme']);
-        add_action('admin_init', [$this, 'milbar_admin_color_scheme']);
-        add_action('user_register', [$this, 'set_default_admin_color']);
     }
 
     /**
