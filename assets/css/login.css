@@ -1,0 +1,69 @@
+#login h1 a {
+    background-image: url('../images/logo-small.png') !important;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    width: 250px;
+    margin-bottom: 0;
+}
+
+*:focus {
+    border: 0 !important;
+    box-shadow: 0 0 0 0 transparent !important;
+    outline: 0 solid transparent !important;
+}
+
+#login form {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 15px;
+    border: 0;
+}
+
+#login form input {
+    border-radius: 0;
+}
+
+#login form input[type=text],
+#login form input[type=password] {
+    background: transparent;
+    box-shadow: none;
+    border: 0;
+    border-bottom: 1px solid;
+    padding-left: 0;
+}
+
+#login form input[type=text]:focus,
+#login form input[type=password]:focus {
+    outline: none;
+    box-shadow: none;
+    border-bottom: 2px solid #0085ca !important;
+}
+
+#login form input[type=submit] {
+    background-color: #0085ca;
+    border-color: #0085ca;
+}
+
+#login .button.wp-hide-pw {
+    right: 15px;
+}
+
+#login .dashicons {
+    color: #0085ca;
+}
+
+#login #nav, #login #backtoblog {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+#login #nav {
+    float: right;
+}
+
+#login #backtoblog {
+    float: left;
+}

@@ -9,7 +9,7 @@ class Init
     public function __construct()
     {
         add_action('login_head', [$this, 'wpb_remove_loginshake']);
-        add_action('login_enqueue_scripts', [$this, 'login_logo']);
+        add_action('login_enqueue_scripts', [$this, 'login_styles'], 0);
         add_filter('admin_footer_text', [$this, 'admin_footer'], 11);
         add_action('admin_bar_menu', [$this, 'remove_wp_logo'], 999);
         add_action('admin_bar_menu', [$this, 'create_menu'], 1);
@@ -21,7 +21,8 @@ class Init
     /**
      *  Remove wp-login form shake effect
      */
-    public function wpb_remove_loginshake() {
+    public function wpb_remove_loginshake()
+    {
         remove_action('login_head', 'wp_shake_js', 12);
     }
 
@@ -34,15 +35,11 @@ class Init
     }
 
     /**
-     * Replace login screen logo
+     * Replace login screen style
      */
-    public function login_logo()
+    public function login_styles()
     {
-        ?>
-        <style type="text/css">
-            body.login div#login h1 a{background-image:url("<?=(MILBAR_BRANDING_PLUGIN_URL . 'assets/images/logo-small.png')?>");background-repeat:no-repeat;background-size:contain;background-position:center center;width:300px}:focus{outline:#0085ca auto 5px}@media screen and (min-width:1024px){html{overflow:hidden}body{display:flex;align-items:center;justify-content:center;max-width:50%;padding-left:50%!important;position:relative}body:before{content:'';background:url("<?=(MILBAR_BRANDING_PLUGIN_URL . 'assets/images/login-bg.jpg')?>");display:block;width:50%;position:absolute;height:100vh;left:0;top:0;background-repeat:no-repeat;background-position:center center;background-size:cover}}.login form{background:0 0!important;box-shadow:none!important;padding:0!important;margin-bottom:15px!important}.login form input[type=password],.login form input[type=text]{background:0 0!important;border:0!important;box-shadow:none!important;border-bottom:1px solid!important}.login form input[type=password]:focus,.login form input[type=text]:focus{outline:0!important;box-shadow:none!important;border-bottom:2px solid #0085ca!important}.login form input[type=submit]{border-radius:0!important;background-color:#0085ca!important;border-color:#0085ca!important}.login #backtoblog,.login #nav{margin:0!important;padding:0!important;display:inline-block!important}.login #nav{float:right!important}.login #backtoblog{float:left!important}
-        </style>
-        <?php
+        wp_enqueue_style('milbar/login', MILBAR_BRANDING_PLUGIN_URL . 'assets/css/login.css', false, MILBAR_BRANDING_PLUGIN_VERSION);
     }
 
 
