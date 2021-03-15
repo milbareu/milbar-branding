@@ -1,7 +1,6 @@
 {
   "name": "mb_wp-plugin/milbar",
-  "description": "Helpers for MilBar WordPress sites.",
-  "keywords": ["wordpress", "plugin", "branding"],
+  "description": "",
   "homepage": "https://milbar.eu",
   "license": "MIT",
   "authors": [
@@ -10,9 +9,6 @@
     }
   ],
   "type": "wordpress-muplugin",
-  "require": {
-    "php": ">=5.3.2"
-  },
   "autoload": {
     "psr-4": { "MilBar\\Branding\\": "src/" }
   }
