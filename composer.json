@@ -1,6 +1,6 @@
 {
-  "name": "mb_wp-plugin/milbar-branding",
-  "description": "Branding for MilBar WordPress sites.",
+  "name": "mb_wp-plugin/milbar",
+  "description": "Helpers for MilBar WordPress sites.",
   "keywords": ["wordpress", "plugin", "branding"],
   "homepage": "https://milbar.eu",
   "license": "MIT",

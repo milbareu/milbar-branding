@@ -1,10 +1,43 @@
+@media (min-width: 992px) {
+
+    body.login {
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #login {
+        padding: 0;
+        transform: translateY(-100px);
+    }
+}
+
+@media (max-width: 375px) {
+    #login {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 20px);
+    }
+}
+
+#login {
+    max-width: 100%;
+}
+
+#login h1 {
+    margin-bottom: 16px;
+}
+
 #login h1 a {
-    background-image: url('../images/logo-small.png') !important;
+    background-image: url('../images/logo-color.svg') !important;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    width: 250px;
     margin-bottom: 0;
+    height: 84px;
+    width: 84px;
 }
 
 *:focus {
@@ -19,6 +52,10 @@
     padding: 0;
     margin-bottom: 15px;
     border: 0;
+}
+
+#login form.shake {
+    animation-iteration-count: 0 !important;
 }
 
 #login form input {
@@ -38,20 +75,16 @@
 #login form input[type=password]:focus {
     outline: none;
     box-shadow: none;
-    border-bottom: 2px solid #0085ca !important;
+    border-bottom: 2px solid #2e72b8 !important;
 }
 
 #login form input[type=submit] {
-    background-color: #0085ca;
-    border-color: #0085ca;
-}
-
-#login .button.wp-hide-pw {
-    right: 15px;
+    background-color: #2e72b8;
+    border-color: #2e72b8;
 }
 
 #login .dashicons {
-    color: #0085ca;
+    color: #2e72b8;
 }
 
 #login #nav, #login #backtoblog {
