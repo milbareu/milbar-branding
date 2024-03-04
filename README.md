@@ -1,3 +1,4 @@
-# WordPress branding for Milbar
-Basic theme branding.
+# milbar-branding
+
+Branding for WordPress sites made by Milan Bartalovics
 

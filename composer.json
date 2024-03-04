@@ -1,15 +1,12 @@
 {
-  "name": "mb_wp-plugin/milbar-branding",
-  "description": "",
+  "name": "milbareu/milbar-branding",
+  "description": "Branding for WordPress sites made by Milan Bartalovics",
   "homepage": "https://milbar.eu",
   "license": "MIT",
+  "type": "wordpress-muplugin",
   "authors": [
     {
       "name": "Milan Bartalovics"
     }
-  ],
-  "type": "wordpress-muplugin",
-  "autoload": {
-    "psr-4": { "MilBar\\Branding\\": "src/" }
-  }
+  ]
 }
